@@ -1,0 +1,21 @@
+{
+    "name": "drexlerux/yii2-bootstrap-sweetalert",
+    "description": "Alert widget based on bootstrap-sweetalert extension {@link http://lipis.github.io/bootstrap-sweetalert/)",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "module", "sweetalert", "bootstrap"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Drexlerux",
+            "email": "drexlerux@gmail.com"
+        }
+    ],
+    "require": {
+        "bower-asset/bootstrap-sweetalert" : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "drexlerux\\sweetalert\\": ""
+        }
+    }
+}

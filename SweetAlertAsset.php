@@ -16,14 +16,14 @@ class SweetAlertAsset extends AssetBundle
      * @var string the directory that contains the source asset files for this asset bundle.
      * A source asset file is a file that is part of your source code repository of your Web application.
      */
-    public $sourcePath = '@bower/bootstrap-sweetalert/lib';
+    public $sourcePath = '@bower/bootstrap-sweetalert/dist';
 
     /**
      * @var array list of JavaScript files that this bundle contains. Each JavaScript file can be
      * specified in one of the following formats:
      */
     public $js = [
-        ['sweet-alert.js', 'position' => View::POS_HEAD]
+        ['sweetalert.js', 'position' => View::POS_END]
     ];
 
     /**
@@ -31,16 +31,16 @@ class SweetAlertAsset extends AssetBundle
      * in one of the three formats as explained in [[js]].
      */
     public $css = [
-        'sweet-alert.css'
+        'sweetalert.css'
     ];
-    
+
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
-    
+
     public $overrideConfirm = true;
-    
+
     public function init()
     {
         parent::init();
@@ -58,9 +58,11 @@ class SweetAlertAsset extends AssetBundle
                 swal({
                     title: message,
                     type: "warning",
-                    showCancelButton: true
+                    showCancelButton: true,
+                    confirmButtonText: "'.Yii::t('app', 'Yes').'",
+                    cancelButtonText: "'.Yii::t('app', 'No').'",
                 },
-                function(isConfirm){   
+                function(isConfirm){
                     if (isConfirm) {
                         !ok || ok();
                     } else {
